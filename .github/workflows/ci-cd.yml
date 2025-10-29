@@ -26,6 +26,9 @@ jobs:
       - name: Instal·lar dependències
         run: npm i
 
+      - name: lint:
+        run: npm run lint
+
       - name: Executar tests
         run: npm test
 
