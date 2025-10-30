@@ -1,6 +1,6 @@
 ---
 // Este es el frontmatter de Astro - se ejecuta solo en el servidor
-import '../styles.css';
+import '@/styles.css';
 ---
 
 <!doctype html>
@@ -53,8 +53,8 @@ import '../styles.css';
     </div>
     <script>
       // Script de cliente que se ejecuta en el navegador
-      import { initImageLoader } from '../scripts/imageLoader';
-      import { handleFormSubmit } from '../scripts/form';
+      import { initImageLoader } from '@/scripts/imageLoader';
+      import { handleFormSubmit } from '@/scripts/form';
       
       initImageLoader();
       
