@@ -5,5 +5,9 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   integrations: [tailwind()],
   output: 'static',
+  base: '/ci-cd-web/',
+  build: {
+    assets: '_assets'
+  }
 });
 
