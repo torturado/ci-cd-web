@@ -36,11 +36,13 @@ function initImageLoader(): void {
 }
 
 // Ejecutar cuando el DOM esté listo
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initImageLoader);
-} else {
-  // El DOM ya está listo
-  initImageLoader();
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initImageLoader);
+  } else {
+    // El DOM ya está listo
+    initImageLoader();
+  }
 }
 
 console.log(greet("ASIX"));
