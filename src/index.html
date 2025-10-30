@@ -10,14 +10,43 @@
       <h1 class="text-4xl font-bold text-center">CI/CD Demo</h1>
     </header>
     <!-- Aqui va un formulario de newsletter-->
-    <div class="w-full flex-1 flex flex-col items-center justify-center">
-     <form>
-        <input type="email" name="email" placeholder="hola@ejemplo.com" class="h-10 px-2 border
-        border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
-        <button type="submit" class="h-10 bg-yellow-500 text-white px-2 rounded-md
-        hover:bg-yellow-600 hover:scale-110 active:bg-yellow-700 active:scale-90
-        transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg mx-3">Suscribirse</button>
+    <div class="w-full flex-1 flex items-center justify-center gap-8 px-4">
+      <form id="form" class="flex flex-col gap-4">
+        <div class="flex items-center gap-4">
+          <label for="name" class="w-24 text-right">Nom:</label>
+          <input type="text" id="name" name="name" placeholder="Nom" class="h-10 px-2 border
+          border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        </div>
+        <div class="flex items-center gap-4">
+          <label for="surname" class="w-24 text-right">Cognoms:</label>
+          <input type="text" id="surname" name="surname" placeholder="Cognoms" class="h-10 px-2 border border-gray-300
+          rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        </div>
+        <div class="flex justify-center mt-2">
+          <button type="submit" class="h-10 bg-yellow-500 text-white px-2 rounded-md
+          hover:bg-yellow-600 hover:scale-110 active:bg-yellow-700 active:scale-90
+          transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg mx-3">Enviar</button>
+        </div>
       </form>
+      <!-- Ponemos la imagen a la derecha del form -->
+      <div class="flex-shrink-0 relative w-[200px] h-[300px]">
+        <!-- Skeleton loader -->
+        <div id="image-skeleton" class="absolute inset-0 bg-gray-200 rounded-lg shadow-md animate-pulse">
+          <div class="w-full h-full flex items-center justify-center">
+            <svg class="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        </div>
+        <!-- Imagen -->
+        <img 
+          src="https://picsum.photos/200/300" 
+          alt="Imagen de prueba" 
+          class="rounded-lg shadow-md w-[200px] h-[300px] object-cover opacity-0 transition-opacity duration-300"
+          id="main-image"
+        >
+      </div>
     </div>
+    <script type="module" src="./app.js"></script>
   </body>
   </html>
