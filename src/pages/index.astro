@@ -1,0 +1,69 @@
+---
+// Este es el frontmatter de Astro - se ejecuta solo en el servidor
+import '../styles.css';
+---
+
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CI/CD Demo</title>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <header class="w-full flex items-center justify-center p-4 fixed top-20 z-10">
+      <h1 class="text-4xl font-bold text-center">CI/CD Demo</h1>
+    </header>
+    <div class="w-full flex-1 flex items-center justify-center gap-8 px-4">
+    <form id="form" class="flex flex-col gap-4">
+        <div class="flex items-center gap-4">
+          <label for="name" class="w-24 text-right">Nom:</label>
+          <input type="text" id="name" name="name" placeholder="Nom" class="h-10 px-2 border
+          border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        </div>
+        <div class="flex items-center gap-4">
+          <label for="surname" class="w-24 text-right">Cognoms:</label>
+          <input type="text" id="surname" name="surname" placeholder="Cognoms" class="h-10 px-2 border border-gray-300
+          rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+        </div>
+        <div class="flex justify-center mt-2">
+          <button type="submit" class="h-10 bg-yellow-500 text-white px-2 rounded-md
+          hover:bg-yellow-600 hover:scale-110 active:bg-yellow-700 active:scale-90
+          transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg mx-3">Enviar</button>
+        </div>
+      </form>
+      <!-- Ponemos la imagen a la derecha del form -->
+      <div class="flex-shrink-0 relative w-[200px] h-[300px]">
+        <!-- Skeleton loader -->
+        <div id="image-skeleton" class="absolute inset-0 bg-yellow-500 rounded-lg shadow-md animate-pulse">
+          <div class="w-full h-full flex items-center justify-center">
+            <svg class="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
+            </svg>
+          </div>
+        </div>
+        <!-- Imagen -->
+        <img 
+          src="https://picsum.photos/200/300" 
+          alt="Imagen de prueba" 
+          class="rounded-lg border-2 border-yellow-500 shadow-md w-[200px] h-[300px] object-cover opacity-0 transition-opacity duration-300"
+          id="main-image"
+        />
+      </div>
+    </div>
+    <script>
+      // Script de cliente que se ejecuta en el navegador
+      import { initImageLoader } from '../scripts/imageLoader';
+      import { handleFormSubmit } from '../scripts/form';
+      
+      initImageLoader();
+      
+      // Attach form submit handler
+      const form = document.getElementById('form') as HTMLFormElement;
+      if (form) {
+        form.addEventListener('submit', handleFormSubmit);
+      }
+    </script>
+  </body>
+</html>
+
