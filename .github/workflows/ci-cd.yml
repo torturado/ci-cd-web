@@ -18,22 +18,28 @@ jobs:
       - name: Checkout codi
         uses: actions/checkout@v4
 
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
       - name: Node.js
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: 'pnpm'
 
       - name: Instal·lar dependències
-        run: npm i
+        run: pnpm install
 
       - name: lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Executar tests
-        run: npm test
+        run: pnpm test
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Carregar artefacte per a Pages
         uses: actions/upload-pages-artifact@v3
