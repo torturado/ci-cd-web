@@ -1,6 +1,6 @@
 import type { APIRoute } from 'astro';
 
-export const GET: APIRoute = async ({ request, url }) => {
+export const GET: APIRoute = async ({ url }) => {
   const SPOTIFY_CLIENT_ID = import.meta.env.SPOTIFY_CLIENT_ID;
   const SPOTIFY_CLIENT_SECRET = import.meta.env.SPOTIFY_CLIENT_SECRET;
   const baseUrl = url.origin;
